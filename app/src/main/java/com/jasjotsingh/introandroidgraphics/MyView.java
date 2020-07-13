@@ -3,8 +3,10 @@ package com.jasjotsingh.introandroidgraphics;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Shader;
 import android.view.View;
 
 public class MyView extends View {
@@ -27,7 +29,7 @@ public class MyView extends View {
 
         greenPaint = new Paint();
         greenPaint.setARGB(255,0,255,0);//a-alpha(transparency),r-red,g-green,b-blue
-        greenPaint.setStyle(Paint.Style.STROKE);
+        greenPaint.setStyle(Paint.Style.FILL);
         greenPaint.setStrokeWidth(15);
     }
 
@@ -49,7 +51,12 @@ public class MyView extends View {
         myLines.lineTo(100,390);
         myLines.lineTo(160,380);
         myLines.close();
-        canvas.drawPath(myLines,greenPaint);
+        //canvas.drawPath(myLines,greenPaint);
         //canvas.drawCircle(204,364,250,greenPaint);
+        LinearGradient linearGradient = new LinearGradient(50,300,160,380,Color.BLUE,Color.RED, Shader.TileMode.MIRROR);
+        Paint gradietnPaint = new Paint();
+        gradietnPaint.setStyle(Paint.Style.FILL);
+        gradietnPaint.setShader(linearGradient);
+        canvas.drawPath(myLines,gradietnPaint);
     }
 }
