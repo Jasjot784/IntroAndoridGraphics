@@ -2,11 +2,13 @@ package com.jasjotsingh.introandroidgraphics;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
 public class MyView extends View {
     private Paint redPaint;
+    private Paint bluePaint;
 
 
     public MyView(Context context) {
@@ -16,6 +18,10 @@ public class MyView extends View {
         redPaint.setStyle(Paint.Style.STROKE);//stroke only no fill
         redPaint.setColor(0xffff0000);//color red
         redPaint.setStrokeWidth(5);//set the line stroke width to 5
+
+        bluePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        bluePaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        bluePaint.setColor(Color.BLUE);
     }
 
 
@@ -23,6 +29,7 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //Add your drawing code here
-        canvas.drawRect(10,30,200,200,redPaint);
+        canvas.drawRect(30,30,200,200,redPaint);
+        canvas.drawCircle(300,300,250,bluePaint);
     }
 }
