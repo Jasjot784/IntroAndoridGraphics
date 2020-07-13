@@ -41,10 +41,15 @@ public class MyView extends View {
 //        canvas.drawRect(500,500,700,700,redPaint);
 //        canvas.drawCircle(600,600,145,redPaint);
         Path myLines = new Path();
-        myLines.moveTo(130,230);
-        myLines.lineTo(70,270);
-        myLines.lineTo(570,630);
-        myLines.lineTo(800,100);
+        myLines.moveTo(50,300);
+        myLines.lineTo(160,280);
+        myLines.lineTo(300,280);
+        myLines.lineTo(380,370);
+        myLines.lineTo(280,450);
+        myLines.lineTo(100,390);
+        myLines.lineTo(160,380);
+        myLines.close();
         canvas.drawPath(myLines,greenPaint);
+        //canvas.drawCircle(204,364,250,greenPaint);
     }
 }
